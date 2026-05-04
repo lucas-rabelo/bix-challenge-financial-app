@@ -8,6 +8,11 @@ export default function proxy(req: NextRequest) {
 
   const isProtectedRoute = req.nextUrl.pathname.startsWith("/dashboard");
   const isLoginPage = req.nextUrl.pathname === "/login";
+  const isInitialRoute = req.nextUrl.pathname !== ("/login" && "/dashboard");
+
+  if(isInitialRoute && !session) {
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
 
   if (isProtectedRoute && !session) {
     return NextResponse.redirect(new URL("/login", req.url));
