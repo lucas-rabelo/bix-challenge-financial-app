@@ -5,4 +5,5 @@ export type InputControlledProps<T extends FieldValues> = ComponentProps<"input"
   control: Control<T>;
   name: Path<T>;
   label: string;
+  errorMessage?: string;
 };

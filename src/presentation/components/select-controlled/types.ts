@@ -6,4 +6,5 @@ export type InputControlledProps<T extends FieldValues> = TextFieldProps & {
   name: Path<T>;
   label: string;
   options: string[];
+  errorMessage?: string;
 };

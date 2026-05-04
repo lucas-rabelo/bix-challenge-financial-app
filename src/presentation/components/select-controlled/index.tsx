@@ -12,12 +12,13 @@ export function SelectControlled<T extends FieldValues>({
   name,
   label,
   options,
+  errorMessage,
 }: InputControlledProps<T>) {
   return (
     <Controller
       control={control}
       name={name}
-      render={({ field, formState: { errors } }) => {
+      render={({ field }) => {
         const valueFormatted = field.value || '';
 
         return (
@@ -29,8 +30,8 @@ export function SelectControlled<T extends FieldValues>({
               </MenuItem>
             ))}
           </Input>
-          {errors[name] ? (
-            <ErrorMessage>{errors[name]?.message as string}</ErrorMessage>
+          {errorMessage ? (
+            <ErrorMessage>{errorMessage}</ErrorMessage>
           ) : null}
         </Container>
       )

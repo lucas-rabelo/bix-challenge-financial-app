@@ -17,7 +17,7 @@ export function LoginForm({}: LoginFormProps) {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const { control, handleSubmit, trigger } = useForm<LoginFormSchema>({
+  const { control, handleSubmit, trigger, formState: { errors } } = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormZodSchema),
     mode: "onSubmit",
   });
@@ -43,12 +43,14 @@ export function LoginForm({}: LoginFormProps) {
         control={control}
         name="email"
         type="email"
-      />
+        errorMessage={errors.email?.message}
+        />
       <InputControlled<LoginFormSchema>
         label="Password"
         control={control}
         name="password"
         type="password"
+        errorMessage={errors.password?.message}
       />
       <Button type="submit" label="Confirm" loading={isLoading} />
     </Form>

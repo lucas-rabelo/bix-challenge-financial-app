@@ -11,19 +11,20 @@ export function InputControlled<T extends FieldValues>({
   name,
   label,
   type,
+  errorMessage,
 }: InputControlledProps<T>) {
   return (
     <Controller
       control={control}
       name={name}
-      render={({ field, formState: { errors } }) => {
+      render={({ field }) => {
         const valueFormatted = field.value || '';
 
         return (
         <Container>
           <Input {...field} type={type} label={label} value={valueFormatted} />
-          {errors[name] ? (
-            <ErrorMessage>{errors[name]?.message as string}</ErrorMessage>
+          {errorMessage ? (
+            <ErrorMessage>{errorMessage}</ErrorMessage>
           ) : null}
         </Container>
       )
