@@ -14,10 +14,10 @@ import type { SummaryCardKeyProps, SummaryCardProps } from "./types";
 
 export function SummaryCard({ type, currency }: SummaryCardProps) {
   const summaryCardTitle: Record<SummaryCardKeyProps, string> = {
-    [SUMMARY_CARDS_KEY.PENDING]: "Pendente",
-    [SUMMARY_CARDS_KEY.INCOME]: "Receitas",
-    [SUMMARY_CARDS_KEY.EXPENSE]: "Despesas",
-    [SUMMARY_CARDS_KEY.BALANCE]: "Saldo",
+    [SUMMARY_CARDS_KEY.PENDING]: "Pending",
+    [SUMMARY_CARDS_KEY.INCOME]: "Incomes",
+    [SUMMARY_CARDS_KEY.EXPENSE]: "Expenses",
+    [SUMMARY_CARDS_KEY.BALANCE]: "Balance",
   };
 
   const summaryCardIcon: Record<SummaryCardKeyProps, ReactNode> = {

@@ -17,7 +17,7 @@ export function LoginForm({}: LoginFormProps) {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const { control, handleSubmit } = useForm<LoginFormSchema>({
+  const { control, handleSubmit, trigger } = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormZodSchema),
     mode: "onSubmit",
   });
@@ -30,6 +30,8 @@ export function LoginForm({}: LoginFormProps) {
 
 
   function handleOnLogin({ email, password }: LoginFormSchema) {
+    trigger()
+
     setIsLoading(true);
     login(email, password);
   }
