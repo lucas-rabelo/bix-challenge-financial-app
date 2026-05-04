@@ -4,7 +4,7 @@ A high-performance, responsive financial dashboard built for the BIX Tecnologia 
 
 🌐 Live Demo: [Bix Challenge Front-end](https://bix-challenge-financial-app.vercel.app/)
 
-🎥 Project Overview (Loom): [[Insert your Loom Link Here]]
+🎥 Project Overview (Loom): [Explication Video](https://www.loom.com/share/9b0dd7834f1d4301bcafbfa97bc260d9)
 
 ## Key Flows
 
