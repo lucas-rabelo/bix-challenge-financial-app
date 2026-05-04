@@ -11,6 +11,7 @@ import type { ReactNode } from "react";
 import { SUMMARY_CARDS_KEY } from "./constants";
 import { Container, Currency, Header, Name } from "./styles";
 import type { SummaryCardKeyProps, SummaryCardProps } from "./types";
+import { Grid } from "@mui/material";
 
 export function SummaryCard({ type, currency }: SummaryCardProps) {
   const summaryCardTitle: Record<SummaryCardKeyProps, string> = {
@@ -28,12 +29,14 @@ export function SummaryCard({ type, currency }: SummaryCardProps) {
   };
 
   return (
-    <Container>
-      <Header>
-        {summaryCardIcon[type]}
-        <Name>{summaryCardTitle[type]}</Name>
-      </Header>
-      <Currency>{formatCurrency(currency)}</Currency>
-    </Container>
+    <Grid size={{ xs: 12, md: 6, lg: 3 }}>
+      <Container>
+        <Header>
+          {summaryCardIcon[type]}
+          <Name>{summaryCardTitle[type]}</Name>
+        </Header>
+        <Currency>{formatCurrency(currency)}</Currency>
+      </Container>
+    </Grid>
   );
 }

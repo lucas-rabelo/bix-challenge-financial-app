@@ -4,7 +4,7 @@ import { Container } from "./styles";
 
 export function SummaryCardList({ data }: SummaryCardListProps) {
   return (
-    <Container>
+    <Container container>
       {data.map((card) => (
         <SummaryCard key={card.type} type={card.type} currency={card.currency} />
       ))}

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import { Stack } from '@mui/material';
+import { Grid } from '@mui/material';
 
-export const Container = styled(Stack).attrs({
-  direction: 'row',
+export const Container = styled(Grid).attrs({
   spacing: 2,
-  useFlexGap: true,
 })``;
