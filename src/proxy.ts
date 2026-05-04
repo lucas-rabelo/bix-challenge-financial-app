@@ -3,22 +3,17 @@ import type { NextRequest } from "next/server";
 
 const AUTH_COOKIE = "auth_session";
 
-export default function proxy(req: NextRequest) {
+export default function middleware(req: NextRequest) {
   const session = req.cookies.get(AUTH_COOKIE);
+  const { pathname } = req.nextUrl;
 
-  const isProtectedRoute = req.nextUrl.pathname.startsWith("/dashboard");
-  const isLoginPage = req.nextUrl.pathname === "/login";
-  const isInitialRoute = req.nextUrl.pathname !== "/login" && req.nextUrl.pathname !== "/dashboard";
+  const isLoginPage = pathname === "/login";
 
-  if(isInitialRoute && !session) {
+  if (!session && !isLoginPage) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  if (isProtectedRoute && !session) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  }
-
-  if (isLoginPage && session) {
+  if (session && isLoginPage) {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 
@@ -26,5 +21,5 @@ export default function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/login"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
