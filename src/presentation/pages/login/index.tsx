@@ -8,8 +8,8 @@ export function LoginPage() {
     <Container>
       <ContainerForm>
         <TitleArea>
-          <Title>Faça login na sua conta</Title>
-          <SubTitle>Bem vindo de volta</SubTitle>
+          <Title>Log in to your account</Title>
+          <SubTitle>Welcome back</SubTitle>
         </TitleArea>
 
         <LoginForm />
