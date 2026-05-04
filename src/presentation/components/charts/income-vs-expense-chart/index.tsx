@@ -1,0 +1,35 @@
+import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import type { ChartData } from '../utils/build-chart-data';
+
+type Props = {
+  data: ChartData[];
+};
+
+export function IncomeVsExpenseChart({ data }: Props) {
+  return (
+    <BarChart
+      style={{
+        width: "100%",
+        maxWidth: "700px",
+        maxHeight: "70vh",
+        aspectRatio: 1.618,
+      }}
+      responsive
+      data={data}
+      margin={{ top: 5, right: 0, left: 0, bottom: 5 }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis width="auto" />
+      <Tooltip />
+      <Legend />
+      <Bar dataKey="income" fill="#8884d8" radius={[10, 10, 0, 0]} />
+      <Bar
+        dataKey="expense"
+        fill="#cc1010"
+        activeBar={{ fill: "#cc1010", stroke: "#cc1010" }}
+        radius={[10, 10, 0, 0]}
+      />
+    </BarChart>
+  );
+}
