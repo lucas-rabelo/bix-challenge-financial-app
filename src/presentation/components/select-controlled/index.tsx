@@ -29,8 +29,8 @@ export function SelectControlled<T extends FieldValues>({
               </MenuItem>
             ))}
           </Input>
-          {errors[name] ? (
-            <ErrorMessage>{errors[name]?.message as string}</ErrorMessage>
+          {errors.root?.message ? (
+            <ErrorMessage>{errors.root?.message as string}</ErrorMessage>
           ) : null}
         </Container>
       )

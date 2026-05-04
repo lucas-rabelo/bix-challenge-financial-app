@@ -22,8 +22,8 @@ export function InputControlled<T extends FieldValues>({
         return (
         <Container>
           <Input {...field} type={type} label={label} value={valueFormatted} />
-          {errors.root ? (
-            <ErrorMessage>{errors.root?.message}</ErrorMessage>
+          {errors.root?.message ? (
+            <ErrorMessage>{errors.root?.message as string}</ErrorMessage>
           ) : null}
         </Container>
       )
