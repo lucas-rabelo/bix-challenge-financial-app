@@ -1,8 +1,10 @@
-# Bix Challenge — Financial App
+# 💹 Bix Challenge — Financial App
 
-A responsive Next.js financial dashboard demo built as part of the Bix challenge. The app shows a simple login flow and a dashboard with summaries, charts and filters powered by local sample data.
+A high-performance, responsive financial dashboard built for the BIX Tecnologia technical challenge. This application allows users to analyze balances, revenues, expenses, and transaction histories through dynamic filtering and interactive visualizations.
 
-Demo: <REPLACE_WITH_YOUR_DEMO_URL>
+🌐 Live Demo: [Bix Challenge Front-end](https://bix-challenge-financial-app.vercel.app/)
+
+🎥 Project Overview (Loom): [[Insert your Loom Link Here]]
 
 ## Key Flows
 
@@ -10,6 +12,80 @@ Demo: <REPLACE_WITH_YOUR_DEMO_URL>
 - Dashboard: overview of income vs expense, summaries and charts (src/app/dashboard and presentation components).
 - Filtering: date range and category filters to refine displayed transactions.
 - Data: local sample transactions are provided in src/presentation/data/transactions.json for offline/demo use.
+
+## 📌 About the Challenge
+
+This application was built to simulate a real-world financial dashboard, allowing users to:
+
+- Analyze income, expenses, and balance
+- Filter transactions dynamically
+- Visualize financial data through charts
+- Navigate through a protected dashboard after authentication
+
+
+## 🧠 Features
+
+### 🔐 Authentication (Client + Server Protection)
+- Login system without backend
+- Session persisted via cookies
+- Route protection using **Next.js middleware**
+- AuthGuard for client-side protection
+- Global auth state using Context API
+
+---
+
+### 📊 Dashboard
+- Summary cards:
+  - Income
+  - Expenses
+  - Balance
+  - Pending transactions
+- Interactive charts:
+  - Bar chart (Income vs Expense)
+  - Line chart (Trend over time)
+- Data normalized for chart usage
+
+---
+
+### 🔎 Advanced Filtering
+- Filters persisted via **URL Params**
+- Global filters:
+  - Date range
+  - Accounts
+  - Industries
+  - States
+- Dynamic updates across the entire dashboard
+
+---
+
+### 📁 Data Handling
+- Data source: `transactions.json`
+- No database used
+- Data transformations:
+  - EPOCH → formatted date
+  - Amount string → currency number
+  - Aggregations for charts and summaries
+
+---
+
+### 🎨 UI/UX
+- Built with **Material UI + styled-components**
+- Fully responsive layout
+- Sidebar navigation
+- Clean and modern dashboard design
+
+---
+
+## 🏗️ Tech Stack
+
+- **Next.js (App Router)**
+- **TypeScript**
+- **Styled-components**
+- **Material UI**
+- **Material Icons**
+- **Recharts**
+- **date-fns**
+
 
 ## Folder Structure (important files)
 
@@ -63,15 +139,3 @@ npm start
 - UI library: Material UI (MUI) + styled-components. Charts use Recharts.
 - Forms are built with react-hook-form and validated with zod.
 - Theming is handled by src/presentation/providers/app-theme-provider.tsx and MUI theme files.
-
-## Contributing
-
-Suggestions, bug reports or PRs are welcome. Open an issue describing what you want to change and include steps to reproduce any bug.
-
-## License
-
-This repository has no license specified. Add a LICENSE file if you plan to publish or share the code.
-
----
-
-If you want, provide a demo URL and a short description of any backend or env variables to include in this README and the file will be updated accordingly.
